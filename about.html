@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — LUNIQ Labs</title>
+<style>
+:root{--n3:#0A1628;--n2:#0D1F38;--blue:#3B82F6;--bl:#60A5FA;--bd:#1D4ED8;--w:#F8FAFC;--g:#64748B;--green:#16A34A;--gl:#86EFAC;--amber:#D97706;--al:#FBB84C;--purple:#7C3AED;--pl:#A78BFA;}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--n3);color:var(--w);overflow-x:hidden;line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:64px;background:rgba(10,22,40,0.95);border-bottom:1px solid rgba(59,130,246,0.1);backdrop-filter:blur(20px)}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.nav-wordmark{font-size:15px;font-weight:600;color:#fff;line-height:1.2}.nav-wordmark span{color:var(--blue)}
+.nav-sub{font-size:9px;color:var(--g);letter-spacing:0.12em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;padding:6px 12px;border-radius:8px;transition:all 0.2s;position:relative}
+.nav-links a:hover{color:#fff}.nav-links a.active{color:#fff}
+.nav-links a.active::after{content:'';position:absolute;bottom:-1px;left:12px;right:12px;height:2px;background:var(--blue);border-radius:2px}
+.nav-cta{background:var(--blue);color:#fff;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;flex-shrink:0}.nav-cta:hover{background:var(--bd);color:#fff}
+.ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px}.ham span{width:20px;height:1.5px;background:#fff;border-radius:2px}
+.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;z-index:199;background:rgba(10,22,40,0.98);border-bottom:1px solid rgba(59,130,246,0.1);padding:16px 20px;flex-direction:column;gap:4px;backdrop-filter:blur(20px)}
+.mob-menu.open{display:flex}.mob-menu a{font-size:15px;color:rgba(255,255,255,0.65);text-decoration:none;padding:10px 12px;border-radius:8px}
+.container{max-width:980px;margin:0 auto;padding:0 28px}
+section{padding:100px 0}
+.label{font-size:10.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--bl);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.label::before{content:'';height:1px;width:20px;background:currentColor;opacity:0.5}
+.label.green{color:var(--gl)}.label.amber{color:var(--al)}.label.purple{color:var(--pl)}
+h2{font-size:clamp(32px,4.5vw,50px);font-weight:700;letter-spacing:-1.5px;line-height:1.1;color:#fff;margin-bottom:12px}
+h2 em{font-style:normal;color:var(--blue)}
+.sub{font-size:15px;color:var(--g);max-width:580px;line-height:1.72;margin-bottom:40px}
+.page-hero{padding:140px 28px 80px;background:var(--n2);position:relative;overflow:hidden;text-align:center}
+.ph-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:var(--blue);filter:blur(160px);opacity:0.07;top:-200px;left:50%;transform:translateX(-50%);pointer-events:none}
+.ph-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(59,130,246,1) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,1) 1px,transparent 1px);background-size:64px 64px;opacity:0.025;pointer-events:none}
+.page-hero-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+.ph-title{font-size:clamp(44px,7vw,72px);font-weight:700;letter-spacing:-2.5px;line-height:1;color:#fff;margin-bottom:16px}
+.ph-title span{color:var(--blue)}
+.ph-sub{font-size:17px;color:rgba(255,255,255,0.5);line-height:1.7}
+/* FOUNDER */
+.founder-grid{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:start}
+.founder-img-wrap{position:relative}
+.founder-img{width:100%;aspect-ratio:3/4;background:rgba(13,31,56,0.8);border:1px solid rgba(59,130,246,0.14);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--g);padding:32px;text-align:center}
+/* ── TO ADD YOUR PHOTO ──
+   Replace the <div class="founder-img"> with:
+   <img src="founder.jpg" alt="Founder" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:16px;border:1px solid rgba(59,130,246,0.14)">
+   Upload founder.jpg to the same folder as this HTML file in your GitHub repo.
+*/
+.founder-img-icon{font-size:48px;opacity:0.3}
+.founder-img-note{font-size:11px;color:var(--g);opacity:0.6;line-height:1.5}
+.founder-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.ftag{font-size:11px;padding:4px 12px;border-radius:12px;font-weight:500;border:1px solid rgba(59,130,246,0.2);background:rgba(59,130,246,0.06);color:var(--bl)}
+.founder-role{font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--bl);margin-bottom:8px}
+.founder-name{font-size:32px;font-weight:700;letter-spacing:-1px;color:#fff;margin-bottom:4px}
+/* ── TO ADD FOUNDER NAME ──
+   Replace [Founder Name] with your actual name.
+*/
+.founder-title{font-size:14px;color:var(--g);margin-bottom:28px}
+.founder-bio{font-size:15px;color:rgba(255,255,255,0.55);line-height:1.78;margin-bottom:20px}
+.founder-bio strong{color:#fff}
+.exp-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.exp-card{background:rgba(13,31,56,0.7);border:1px solid rgba(59,130,246,0.1);border-radius:12px;padding:18px}
+.exp-num{font-size:28px;font-weight:800;color:var(--blue);letter-spacing:-1px;line-height:1}
+.exp-label{font-size:11px;color:var(--g);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px}
+.brand-logos{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.brand-chip{font-size:12px;padding:5px 14px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.45);font-weight:500}
+/* VISION */
+.vision-card{background:linear-gradient(135deg,rgba(59,130,246,0.06),rgba(124,58,237,0.06));border:1px solid rgba(59,130,246,0.14);border-radius:20px;padding:48px;position:relative;overflow:hidden;margin-bottom:0}
+.vision-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--purple))}
+.vision-q{font-size:48px;color:rgba(59,130,246,0.15);font-weight:800;line-height:1;margin-bottom:16px}
+.vision-text{font-size:18px;color:rgba(255,255,255,0.75);line-height:1.75;font-weight:300;max-width:640px;margin-bottom:24px}
+.vision-text strong{color:#fff;font-weight:600}
+.vision-attr{font-size:12px;color:var(--g);letter-spacing:0.08em}
+/* COMPANY FACTS */
+.facts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.fact{background:rgba(13,31,56,0.6);border:1px solid rgba(59,130,246,0.1);border-radius:14px;padding:24px;text-align:center}
+.fact-val{font-size:28px;font-weight:800;color:var(--blue);letter-spacing:-1px;line-height:1;margin-bottom:6px}
+.fact-val.g{color:var(--gl)}.fact-val.a{color:var(--al)}.fact-val.p{color:var(--pl)}
+.fact-label{font-size:11px;color:var(--g);text-transform:uppercase;letter-spacing:0.1em}
+/* ROADMAP */
+.rm-cards{display:flex;flex-direction:column;gap:14px}
+.rm-card{border-radius:14px;padding:22px 28px;border:1px solid;position:relative;overflow:hidden;transition:transform 0.25s}
+.rm-card:hover{transform:translateX(5px)}
+.rm-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
+.rm-card.done{background:rgba(59,130,246,0.04);border-color:rgba(59,130,246,0.14)}.rm-card.done::before{background:var(--blue)}
+.rm-card.now{background:rgba(217,119,6,0.04);border-color:rgba(217,119,6,0.18)}.rm-card.now::before{background:var(--amber)}
+.rm-card.soon{background:rgba(124,58,237,0.04);border-color:rgba(124,58,237,0.14)}.rm-card.soon::before{background:var(--purple)}
+.rm-card.vision{background:rgba(22,163,74,0.04);border-color:rgba(22,163,74,0.14)}.rm-card.vision::before{background:var(--green)}
+.rm-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.rm-phase{font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase}
+.rm-card.done .rm-phase{color:var(--bl)}.rm-card.now .rm-phase{color:var(--al)}.rm-card.soon .rm-phase{color:var(--pl)}.rm-card.vision .rm-phase{color:var(--gl)}
+.rm-badge{font-size:9px;font-weight:700;padding:2px 9px;border-radius:10px}
+.rm-card.done .rm-badge{background:rgba(59,130,246,0.1);color:var(--bl)}.rm-card.now .rm-badge{background:rgba(217,119,6,0.12);color:var(--al)}.rm-card.soon .rm-badge{background:rgba(124,58,237,0.1);color:var(--pl)}.rm-card.vision .rm-badge{background:rgba(22,163,74,0.1);color:var(--gl)}
+.rm-title{font-size:17px;font-weight:700;letter-spacing:-0.4px;color:#fff;margin-bottom:6px}
+.rm-text{font-size:13px;color:rgba(255,255,255,0.42);line-height:1.65}
+.btn-p{display:inline-flex;align-items:center;gap:6px;background:var(--blue);color:#fff;padding:13px 26px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;transition:background 0.2s}
+.btn-p:hover{background:var(--bd)}
+footer{border-top:1px solid rgba(59,130,246,0.08);padding:28px 52px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.f-brand{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#fff;text-decoration:none}.f-brand span{color:var(--blue)}
+.f-copy{font-size:11.5px;color:var(--g)}
+.f-links{display:flex;gap:20px}.f-links a{font-size:12px;color:var(--g);text-decoration:none}.f-links a:hover{color:#fff}
+@media(max-width:880px){.founder-grid{grid-template-columns:1fr}.facts-grid{grid-template-columns:repeat(2,1fr)}.exp-cards{grid-template-columns:1fr}}
+@media(max-width:768px){nav{padding:0 20px}.nav-links,.nav-cta{display:none}.ham{display:flex}section{padding:72px 0}footer{padding:20px;flex-direction:column;text-align:center}.facts-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-brand">
+    <svg width="28" height="28" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="9" stroke="#3B82F6" stroke-width="1.5"/><circle cx="13" cy="13" r="5" fill="#3B82F6" opacity="0.18"/><circle cx="13" cy="13" r="2.5" fill="#3B82F6"/><path d="M13 4L13 6M13 20L13 22M4 13L6 13M20 13L22 13" stroke="#3B82F6" stroke-width="1.2" stroke-linecap="round"/></svg>
+    <div><div class="nav-wordmark">LUNIQ <span>Labs</span></div><div class="nav-sub">R&D · Innovation</div></div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a><a href="what-we-do.html">What We Do</a><a href="saferide.html">SafeRide</a><a href="technology.html">Technology</a><a href="about.html" class="active">About</a><a href="contact.html">Contact</a>
+  </div>
+  <a href="contact.html" class="nav-cta">Get in Touch →</a>
+  <div class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html">Home</a><a href="what-we-do.html">What We Do</a><a href="saferide.html">SafeRide</a><a href="technology.html">Technology</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+</div>
+<div class="page-hero">
+  <div class="ph-glow"></div><div class="ph-grid"></div>
+  <div class="page-hero-inner">
+    <div class="label" style="justify-content:center;margin-bottom:16px">About LUNIQ Labs</div>
+    <div class="ph-title">Where unique ideas become<br><span>intelligent products.</span></div>
+    <p class="ph-sub">We are a deep tech R&D company built on the belief that every unsolved problem is a product waiting to be engineered.</p>
+  </div>
+</div>
+
+<!-- COMPANY SNAPSHOT -->
+<section style="background:var(--n3)">
+  <div class="container">
+    <div class="label">Company</div>
+    <h2>LUNIQ Labs <em>at a glance</em></h2>
+    <div class="facts-grid" style="margin-bottom:48px">
+      <div class="fact"><div class="fact-val">2025</div><div class="fact-label">Founded</div></div>
+      <div class="fact"><div class="fact-val g">Delhi</div><div class="fact-label">Headquarters</div></div>
+      <div class="fact"><div class="fact-val a">1</div><div class="fact-label">Product Live</div></div>
+      <div class="fact"><div class="fact-val p">Pvt Ltd</div><div class="fact-label">Legal Entity</div></div>
+    </div>
+    <!-- VISION -->
+    <div class="vision-card">
+      <div class="vision-q">"</div>
+      <div class="vision-text">
+        We started LUNIQ Labs with a simple conviction: <strong>the best products in the world are built by people who are obsessed with the problem, not the technology.</strong> Every company we admire — in any industry — solved something real first and built the product second. That's the only way we know how to work.
+      </div>
+      <div class="vision-attr">— Founding Vision · LUNIQ Labs Pvt Ltd</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section style="background:var(--n2)">
+  <div class="container">
+    <div class="label">Founder</div>
+    <h2>Built by someone who's <em>shipped before</em></h2>
+    <div class="founder-grid">
+      <div class="founder-img-wrap">
+        <!-- ══════════════════════════════════════════════
+          TO ADD YOUR PHOTO:
+          1. Upload a photo named "founder.jpg" to your GitHub repo (same folder as this file)
+          2. Delete the <div class="founder-img"> block below
+          3. Replace it with:
+             <img src="founder.jpg" alt="Founder - LUNIQ Labs"
+               style="width:100%;aspect-ratio:3/4;object-fit:cover;
+                      border-radius:16px;border:1px solid rgba(59,130,246,0.14)">
+        ══════════════════════════════════════════════ -->
+        <div class="founder-img">
+          <div class="founder-img-icon">👤</div>
+          <div class="founder-img-note">Add your photo here<br><br>Upload <strong>founder.jpg</strong> to the repo and follow the instructions in the code comment above this block</div>
+        </div>
+        <div class="founder-tags" style="margin-top:16px">
+          <span class="ftag">Mechanical Engineering</span>
+          <span class="ftag">Automation</span>
+          <span class="ftag">Firmware</span>
+          <span class="ftag">Product Launch</span>
+          <span class="ftag">Delhi, India</span>
+        </div>
+      </div>
+      <div>
+        <div class="founder-role">Founder & CEO</div>
+        <!-- ══════════════════════════════════════════
+          TO ADD YOUR NAME:
+          Replace [Founder Name] below with your actual name.
+        ══════════════════════════════════════════ -->
+        <div class="founder-name">[Founder Name]</div>
+        <div class="founder-title">Mechanical & Automation Engineer · Deep Tech Builder</div>
+        <p class="founder-bio">With over <strong>6 years of hands-on industry experience</strong> in mechanical and automation engineering, the founder of LUNIQ Labs has a track record of taking products from concept to market for some of India's most recognised brands.</p>
+        <p class="founder-bio">Having led hardware and product development across <strong>Urban Company, Paytm, Schneider Electric, Panasonic</strong>, and several others, the founding philosophy is simple: understand the problem deeply before touching the technology.</p>
+        <p class="founder-bio">LUNIQ Labs is the vehicle for a larger ambition — to build a deep tech R&D company that creates products people actually need, not technology for its own sake.</p>
+        <div class="exp-cards">
+          <div class="exp-card"><div class="exp-num">6+</div><div class="exp-label">Years industry experience</div></div>
+          <div class="exp-card"><div class="exp-num">10+</div><div class="exp-label">Products launched to market</div></div>
+        </div>
+        <div class="brand-logos" style="margin-top:24px">
+          <span class="brand-chip">Urban Company</span>
+          <span class="brand-chip">Paytm</span>
+          <span class="brand-chip">Schneider Electric</span>
+          <span class="brand-chip">Panasonic</span>
+          <span class="brand-chip">+ more</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section style="background:var(--n3)">
+  <div class="container">
+    <div class="label amber">Roadmap</div>
+    <h2>From prototype to <em>platform</em>.</h2>
+    <p class="sub" style="margin-bottom:36px">SafeRide addresses a ₹6,000 Crore government-mandated market. This is where LUNIQ Labs is — and where it's going.</p>
+    <div style="display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:start">
+      <div class="rm-cards">
+        <div class="rm-card done">
+          <div class="rm-top"><span class="rm-phase">Complete</span><span class="rm-badge">✓ Done</span></div>
+          <div class="rm-title">Working Prototype · Field Validated</div>
+          <div class="rm-text">All core systems complete. Field tested in a real vehicle on Delhi roads. Patent filed with IP India 2025. Cloud infrastructure live.</div>
+        </div>
+        <div class="rm-card now">
+          <div class="rm-top"><span class="rm-phase">In Progress · Month 1–2</span><span class="rm-badge">▶ Now</span></div>
+          <div class="rm-title">Company Registration + First Pilot</div>
+          <div class="rm-text">LUNIQ Labs Pvt Ltd registration via MCA. NIDHI-PRAYAS grant application. Cellular integration. First pilot cab deployed in Delhi-NCR.</div>
+        </div>
+        <div class="rm-card soon">
+          <div class="rm-top"><span class="rm-phase">Month 3–4</span><span class="rm-badge">Upcoming</span></div>
+          <div class="rm-title">Production Hardware + 10 Pilot Units</div>
+          <div class="rm-text">Custom PCB design. Vehicle data integration. 10 units deployed across fleet operators. First Letter of Intent from fleet client.</div>
+        </div>
+        <div class="rm-card soon">
+          <div class="rm-top"><span class="rm-phase">Month 5–6</span><span class="rm-badge">Upcoming</span></div>
+          <div class="rm-title">Seed Round ₹50L + 100-Unit Production</div>
+          <div class="rm-text">₹50 Lakh seed round. First team hires. 100-unit production run. AIS-140 type approval. B2B fleet contracts signed.</div>
+        </div>
+        <div class="rm-card vision">
+          <div class="rm-top"><span class="rm-phase">Year 2 → Vision</span><span class="rm-badge">Platform</span></div>
+          <div class="rm-title">LUNIQ Labs as a Multi-Product Platform</div>
+          <div class="rm-text">SafeRide at fleet scale. Second product line in development. Contract R&D as a revenue vertical. Series A and national expansion.</div>
+        </div>
+      </div>
+      <div style="background:rgba(59,130,246,0.05);border:1px solid rgba(59,130,246,0.12);border-radius:16px;padding:28px;position:sticky;top:84px">
+        <div style="font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--g);margin-bottom:20px">Why Now</div>
+        <div style="font-size:32px;font-weight:800;color:#fff;letter-spacing:-1.5px;line-height:1;margin-bottom:6px">₹6,000 Cr</div>
+        <div style="font-size:12px;color:var(--g);margin-bottom:24px">Government-mandated market</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px">
+          <div style="font-size:13px;color:rgba(255,255,255,0.45);display:flex;align-items:flex-start;gap:8px;line-height:1.5"><span style="color:var(--blue);flex-shrink:0">→</span>Mandate already exists — compliance is not optional</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.45);display:flex;align-items:flex-start;gap:8px;line-height:1.5"><span style="color:var(--blue);flex-shrink:0">→</span>Existing devices are inadequate — SafeRide is the upgrade</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.45);display:flex;align-items:flex-start;gap:8px;line-height:1.5"><span style="color:var(--blue);flex-shrink:0">→</span>Patent filed — defensible position in a large market</div>
+        </div>
+        <a href="contact.html" class="btn-p" style="width:100%;justify-content:center">Investor Enquiry →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="index.html" class="f-brand"><svg width="18" height="18" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="9" stroke="#3B82F6" stroke-width="1.5"/><circle cx="13" cy="13" r="2.5" fill="#3B82F6"/></svg>LUNIQ <span>Labs</span> Pvt Ltd</a>
+  <div class="f-copy">© 2025 LUNIQ Labs Pvt Ltd</div>
+  <div class="f-links"><a href="saferide.html">SafeRide</a><a href="technology.html">Technology</a><a href="contact.html">Contact</a></div>
+</footer>
+<script>
+function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open')}
+document.addEventListener('click',function(e){const m=document.getElementById('mobMenu');if(m.classList.contains('open')&&!m.contains(e.target)&&!document.querySelector('.ham').contains(e.target))m.classList.remove('open');});
+</script>
+</body></html>

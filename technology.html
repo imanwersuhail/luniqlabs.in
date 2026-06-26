@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technology — LUNIQ Labs</title>
+<style>
+:root{--n3:#0A1628;--n2:#0D1F38;--blue:#3B82F6;--bl:#60A5FA;--bd:#1D4ED8;--w:#F8FAFC;--g:#64748B;--green:#16A34A;--gl:#86EFAC;--amber:#D97706;--al:#FBB84C;--purple:#7C3AED;--pl:#A78BFA;--teal:#0D9488;--tl:#5EEAD4;}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--n3);color:var(--w);overflow-x:hidden;line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:64px;background:rgba(10,22,40,0.95);border-bottom:1px solid rgba(59,130,246,0.1);backdrop-filter:blur(20px)}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.nav-wordmark{font-size:15px;font-weight:600;color:#fff;line-height:1.2}.nav-wordmark span{color:var(--blue)}
+.nav-sub{font-size:9px;color:var(--g);letter-spacing:0.12em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;padding:6px 12px;border-radius:8px;transition:all 0.2s;position:relative}
+.nav-links a:hover{color:#fff}.nav-links a.active{color:#fff}
+.nav-links a.active::after{content:'';position:absolute;bottom:-1px;left:12px;right:12px;height:2px;background:var(--blue);border-radius:2px}
+.nav-cta{background:var(--blue);color:#fff;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;flex-shrink:0}
+.nav-cta:hover{background:var(--bd);color:#fff}
+.ham{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px}.ham span{width:20px;height:1.5px;background:#fff;border-radius:2px}
+.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;z-index:199;background:rgba(10,22,40,0.98);border-bottom:1px solid rgba(59,130,246,0.1);padding:16px 20px;flex-direction:column;gap:4px;backdrop-filter:blur(20px)}
+.mob-menu.open{display:flex}.mob-menu a{font-size:15px;color:rgba(255,255,255,0.65);text-decoration:none;padding:10px 12px;border-radius:8px}
+.container{max-width:980px;margin:0 auto;padding:0 28px}
+section{padding:100px 0}
+.label{font-size:10.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--bl);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.label::before{content:'';height:1px;width:20px;background:currentColor;opacity:0.5}
+h2{font-size:clamp(32px,4.5vw,50px);font-weight:700;letter-spacing:-1.5px;line-height:1.1;color:#fff;margin-bottom:12px}
+h2 em{font-style:normal;color:var(--blue)}
+.sub{font-size:15px;color:var(--g);max-width:580px;line-height:1.72;margin-bottom:44px}
+/* PAGE HERO */
+.page-hero{padding:140px 28px 80px;background:var(--n2);position:relative;overflow:hidden;text-align:center}
+.ph-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:var(--blue);filter:blur(160px);opacity:0.07;top:-200px;left:50%;transform:translateX(-50%);pointer-events:none}
+.ph-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(59,130,246,1) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,1) 1px,transparent 1px);background-size:64px 64px;opacity:0.025;pointer-events:none}
+.page-hero-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+.ph-title{font-size:clamp(44px,7vw,72px);font-weight:700;letter-spacing:-2.5px;line-height:1;color:#fff;margin-bottom:16px}
+.ph-title span{color:var(--blue)}
+.ph-sub{font-size:17px;color:rgba(255,255,255,0.5);line-height:1.7}
+/* TABS */
+.tech-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:44px;border-bottom:1px solid rgba(59,130,246,0.1);padding-bottom:0}
+.tt{padding:10px 20px;font-size:13px;font-weight:500;color:rgba(255,255,255,0.4);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s;margin-bottom:-1px;user-select:none}
+.tt:hover{color:rgba(255,255,255,0.7)}.tt.active{color:var(--bl);border-bottom-color:var(--blue)}
+.tp{display:none;animation:fadeIn 0.3s ease}.tp.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.tech-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.tp-title{font-size:26px;font-weight:700;letter-spacing:-0.8px;color:#fff;margin-bottom:8px}
+.tp-desc{font-size:14px;color:rgba(255,255,255,0.48);line-height:1.72;margin-bottom:28px}
+.tc-list{display:flex;flex-direction:column;gap:10px}
+.tc{background:rgba(59,130,246,0.04);border:1px solid rgba(59,130,246,0.1);border-radius:10px;padding:16px;transition:border-color 0.2s}
+.tc:hover{border-color:rgba(59,130,246,0.25)}
+.tc-name{font-size:13px;font-weight:600;color:#fff;margin-bottom:4px}
+.tc-desc{font-size:12px;color:var(--g);line-height:1.55}
+.tech-vis{background:rgba(10,22,40,0.9);border:1px solid rgba(59,130,246,0.12);border-radius:14px;padding:28px;min-height:300px}
+.tv-title{font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--g);margin-bottom:20px}
+/* arch diagram */
+.arch-flow{display:flex;flex-direction:column;gap:6px}
+.arch-node{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:9px;background:rgba(59,130,246,0.05);border:1px solid rgba(59,130,246,0.12)}
+.arch-arrow{text-align:center;font-size:11px;color:var(--g);padding:2px 0}
+.arch-node-name{font-size:12px;font-weight:600;color:#fff;flex:1}
+.arch-node-sub{font-size:11px;color:var(--g)}
+/* pillars grid */
+.cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cap-item{padding:14px;border-radius:9px;background:rgba(59,130,246,0.04);border:1px solid rgba(59,130,246,0.1)}
+.cap-item-name{font-size:12px;font-weight:600;color:#fff;margin-bottom:3px}
+.cap-item-sub{font-size:11px;color:var(--g)}
+/* PRINCIPLES */
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.prin{background:rgba(13,31,56,0.6);border:1px solid rgba(59,130,246,0.1);border-radius:14px;padding:28px;transition:border-color 0.25s}
+.prin:hover{border-color:rgba(59,130,246,0.28)}
+.prin-icon{font-size:22px;margin-bottom:14px}
+.prin-title{font-size:15px;font-weight:600;color:#fff;margin-bottom:8px;letter-spacing:-0.3px}
+.prin-desc{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.65}
+.btn-p{display:inline-flex;align-items:center;gap:6px;background:var(--blue);color:#fff;padding:13px 26px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;transition:background 0.2s}
+.btn-p:hover{background:var(--bd)}
+footer{border-top:1px solid rgba(59,130,246,0.08);padding:28px 52px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.f-brand{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#fff;text-decoration:none}.f-brand span{color:var(--blue)}
+.f-copy{font-size:11.5px;color:var(--g)}
+.f-links{display:flex;gap:20px}.f-links a{font-size:12px;color:var(--g);text-decoration:none}.f-links a:hover{color:#fff}
+@media(max-width:900px){.tech-layout{grid-template-columns:1fr}.principles{grid-template-columns:1fr}}
+@media(max-width:768px){nav{padding:0 20px}.nav-links,.nav-cta{display:none}.ham{display:flex}section{padding:72px 0}footer{padding:20px;flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-brand">
+    <svg width="28" height="28" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="9" stroke="#3B82F6" stroke-width="1.5"/><circle cx="13" cy="13" r="5" fill="#3B82F6" opacity="0.18"/><circle cx="13" cy="13" r="2.5" fill="#3B82F6"/><path d="M13 4L13 6M13 20L13 22M4 13L6 13M20 13L22 13" stroke="#3B82F6" stroke-width="1.2" stroke-linecap="round"/></svg>
+    <div><div class="nav-wordmark">LUNIQ <span>Labs</span></div><div class="nav-sub">R&D · Innovation</div></div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a><a href="what-we-do.html">What We Do</a><a href="saferide.html">SafeRide</a><a href="technology.html" class="active">Technology</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+  </div>
+  <a href="contact.html" class="nav-cta">Get in Touch →</a>
+  <div class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html">Home</a><a href="what-we-do.html">What We Do</a><a href="saferide.html">SafeRide</a><a href="technology.html">Technology</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+</div>
+<div class="page-hero">
+  <div class="ph-glow"></div><div class="ph-grid"></div>
+  <div class="page-hero-inner">
+    <div class="label" style="justify-content:center;margin-bottom:16px">Our Stack</div>
+    <div class="ph-title">Built to last.<br>Engineered to <span>scale.</span></div>
+    <p class="ph-sub">Every product we build sits on the same rigorous embedded and cloud engineering foundation — designed for field reliability, not just lab demos.</p>
+  </div>
+</div>
+
+<section style="background:var(--n3)">
+  <div class="container">
+    <div class="label">Technology Stack</div>
+    <h2>The stack we <em>build on</em></h2>
+    <p class="sub">From edge compute to cloud infrastructure, our technology choices are driven by field reliability, security, and production scalability.</p>
+    <div class="tech-tabs">
+      <div class="tt active" onclick="showTab('embedded',this)">Embedded Systems</div>
+      <div class="tt" onclick="showTab('cloud',this)">Cloud & Connectivity</div>
+      <div class="tt" onclick="showTab('safety',this)">Safety & Security</div>
+    </div>
+    <!-- EMBEDDED -->
+    <div class="tp active" id="tp-embedded">
+      <div class="tech-layout">
+        <div>
+          <div class="tp-title">Edge compute & embedded firmware</div>
+          <div class="tp-desc">Custom firmware written for low-power, high-reliability edge MCUs. Every system is built in validated stages — with remote update capability and persistent configuration baked in from day one.</div>
+          <div class="tc-list">
+            <div class="tc"><div class="tc-name">Edge Compute MCU</div><div class="tc-desc">High-performance dual-core microcontroller with ample flash and RAM for complex real-time tasks</div></div>
+            <div class="tc"><div class="tc-name">Real-Time Operating System (RTOS)</div><div class="tc-desc">Task-based firmware architecture enabling concurrent safety-critical operations without conflicts</div></div>
+            <div class="tc"><div class="tc-name">Remote Firmware Updates (OTA)</div><div class="tc-desc">Over-the-air update capability — fleet-wide firmware upgrades without physical access to devices</div></div>
+            <div class="tc"><div class="tc-name">Vision Subsystem</div><div class="tc-desc">Dedicated image capture and encoding module operating as a coordinated slave to the main MCU</div></div>
+          </div>
+        </div>
+        <div class="tech-vis">
+          <div class="tv-title">Firmware Architecture</div>
+          <div class="cap-grid">
+            <div class="cap-item"><div class="cap-item-name">Main MCU</div><div class="cap-item-sub">Dual-core · RTOS</div></div>
+            <div class="cap-item"><div class="cap-item-name">Camera Module</div><div class="cap-item-sub">UART slave · Live stream</div></div>
+            <div class="cap-item"><div class="cap-item-name">GPS Module</div><div class="cap-item-sub">Precision tracking</div></div>
+            <div class="cap-item"><div class="cap-item-name">Cellular Modem</div><div class="cap-item-sub">4G LTE · Roadmap</div></div>
+            <div class="cap-item"><div class="cap-item-name">Safety Relay</div><div class="cap-item-sub">Vehicle control</div></div>
+            <div class="cap-item"><div class="cap-item-name">Vehicle Bus</div><div class="cap-item-sub">Diagnostics · Roadmap</div></div>
+            <div class="cap-item"><div class="cap-item-name">Tamper Sensors</div><div class="cap-item-sub">Multi-type detection</div></div>
+            <div class="cap-item"><div class="cap-item-name">OTA Updates</div><div class="cap-item-sub">Remote · Persistent</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CLOUD -->
+    <div class="tp" id="tp-cloud">
+      <div class="tech-layout">
+        <div>
+          <div class="tp-title">Cloud infrastructure & real-time data</div>
+          <div class="tp-desc">End-to-end encrypted data pipelines from device to dashboard. Real-time telemetry, remote command capability, and a browser-based monitoring interface that scales to thousands of devices.</div>
+          <div class="tc-list">
+            <div class="tc"><div class="tc-name">Secure Cloud IoT Platform</div><div class="tc-desc">Enterprise-grade IoT backbone with device management, telemetry, and fleet-scale command delivery</div></div>
+            <div class="tc"><div class="tc-name">Encrypted Messaging Protocol</div><div class="tc-desc">TLS-encrypted bidirectional communication — commands and alerts with sub-second latency</div></div>
+            <div class="tc"><div class="tc-name">Real-Time Bridge Server</div><div class="tc-desc">Middleware layer handling live stream proxying, alert routing, and dashboard data delivery</div></div>
+            <div class="tc"><div class="tc-name">Fleet Dashboard</div><div class="tc-desc">Browser-based monitoring interface — no app installation required for operators or law enforcement</div></div>
+          </div>
+        </div>
+        <div class="tech-vis">
+          <div class="tv-title">Data Flow — Device to Dashboard</div>
+          <div class="arch-flow">
+            <div class="arch-node"><span style="font-size:16px">⚡</span><span class="arch-node-name">Edge Device</span><span class="arch-node-sub">Field deployed</span></div>
+            <div class="arch-arrow">↓ Encrypted channel</div>
+            <div class="arch-node"><span style="font-size:16px">☁️</span><span class="arch-node-name">Cloud IoT Core</span><span class="arch-node-sub">Secure ingestion</span></div>
+            <div class="arch-arrow">↓ Real-time routing</div>
+            <div class="arch-node"><span style="font-size:16px">⚙️</span><span class="arch-node-name">Bridge Server</span><span class="arch-node-sub">Stream + alert routing</span></div>
+            <div class="arch-arrow">↓ Live delivery</div>
+            <div class="arch-node"><span style="font-size:16px">🖥️</span><span class="arch-node-name">Fleet Dashboard</span><span class="arch-node-sub">Browser · No app needed</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SAFETY -->
+    <div class="tp" id="tp-safety">
+      <div class="tech-layout">
+        <div>
+          <div class="tp-title">Safety-critical design & security</div>
+          <div class="tp-desc">When a product controls a moving vehicle or triggers emergency response, failure modes matter more than features. Every safety-critical function in our stack has explicit fail-safe logic.</div>
+          <div class="tc-list">
+            <div class="tc"><div class="tc-name">Velocity-Gated Vehicle Control</div><div class="tc-desc">Remote stop commands execute only when speed is within a safe threshold — preventing accidents from misuse</div></div>
+            <div class="tc"><div class="tc-name">GPS Staleness Validation</div><div class="tc-desc">Location data is validated for freshness before any command is executed — stale data triggers a safe hold</div></div>
+            <div class="tc"><div class="tc-name">Multi-Type Tamper Classification</div><div class="tc-desc">Physical and electrical tamper events are independently classified and reported with event type metadata</div></div>
+            <div class="tc"><div class="tc-name">End-to-End Encryption</div><div class="tc-desc">All device-to-cloud communication is TLS encrypted — no plaintext data in transit at any point</div></div>
+          </div>
+        </div>
+        <div class="tech-vis">
+          <div class="tv-title">Safety Logic Overview</div>
+          <div class="arch-flow">
+            <div class="arch-node"><span style="font-size:16px">🚨</span><span class="arch-node-name">Trigger Received</span><span class="arch-node-sub">SOS / Remote Command</span></div>
+            <div class="arch-arrow">↓ Validate</div>
+            <div class="arch-node"><span style="font-size:16px">📍</span><span class="arch-node-name">GPS Freshness Check</span><span class="arch-node-sub">Stale = hold command</span></div>
+            <div class="arch-arrow">↓ If location valid</div>
+            <div class="arch-node"><span style="font-size:16px">🏎️</span><span class="arch-node-name">Velocity Gate Check</span><span class="arch-node-sub">Speed below threshold?</span></div>
+            <div class="arch-arrow">↓ If safe</div>
+            <div class="arch-node"><span style="font-size:16px">✅</span><span class="arch-node-name">Command Executed</span><span class="arch-node-sub">Safe stop + alert dispatch</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- PRINCIPLES -->
+    <div class="principles">
+      <div class="prin"><div class="prin-icon">🔬</div><div class="prin-title">Field-first validation</div><div class="prin-desc">Nothing ships without real-world testing. Every system is validated in the environment it will actually operate in — not just a controlled lab.</div></div>
+      <div class="prin"><div class="prin-icon">⚡</div><div class="prin-title">Production from day one</div><div class="prin-desc">Component selection, firmware architecture, and system design all account for production scale — not just prototype convenience.</div></div>
+      <div class="prin"><div class="prin-icon">🔒</div><div class="prin-title">Security by design</div><div class="prin-desc">Encryption, authentication, and fail-safe logic are baked in at the architecture level — not added as an afterthought before launch.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="index.html" class="f-brand"><svg width="18" height="18" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="9" stroke="#3B82F6" stroke-width="1.5"/><circle cx="13" cy="13" r="2.5" fill="#3B82F6"/></svg>LUNIQ <span>Labs</span> Pvt Ltd</a>
+  <div class="f-copy">© 2025 LUNIQ Labs Pvt Ltd</div>
+  <div class="f-links"><a href="saferide.html">SafeRide</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+</footer>
+<script>
+function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open')}
+document.addEventListener('click',function(e){const m=document.getElementById('mobMenu');if(m.classList.contains('open')&&!m.contains(e.target)&&!document.querySelector('.ham').contains(e.target))m.classList.remove('open');});
+function showTab(id,el){
+  document.querySelectorAll('.tt').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tp').forEach(p=>p.classList.remove('active'));
+  el.classList.add('active');document.getElementById('tp-'+id).classList.add('active');
+}
+</script>
+</body></html>
